@@ -41,8 +41,8 @@ function MoyenneClass() {
     let MoyenneClass = TotalNotes / Students.length;
     return `La moyenne de la classe : ${MoyenneClass}`;
 }
-function FindStudent(name) {
-    return Students.find(student => student.name === name);
+function FindStudent() {
+    return Students.find(student => student.name.toLowerCase() ==='amine');
 }
 function StudentGT12() {
     let Student_GT_12 = Students.filter(student => student.getAverageGrade() >= 12);

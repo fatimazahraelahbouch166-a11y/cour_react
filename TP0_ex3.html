@@ -51,9 +51,47 @@ class Stock {
        result+=`Produit : ${this.inventory[i].name} __ Categorie : ${this.inventory[i].category} __ Prix : ${this.inventory[i].price} \n `
     }
     return result 
-      }
+}
       searchByName(name){
-        
+        let result=''
+        for (let i=0;i<this.inventory.length;i++){
+                 if (this.inventory[i].name===name){
+                    result+=`Produit : ${this.inventory[i].name} __ Categorie : ${this.inventory[i].category} __ Prix : ${this.inventory[i].price} \n `
+                 }
+        }
+        return result
+      }
+      filterByPrice(min, max){
+        let result=''
+         for (let i=0;i<this.inventory.length;i++){
+                 if (this.inventory[i].price>min && this.inventory[i].price<max){
+                     result+=`Produit : ${this.inventory[i].name} __ Categorie : ${this.inventory[i].category} __ Prix : ${this.inventory[i].price} \n `
+                 }
+        }
+        return result
+      }
+      mostExpensiveProduct(){
+        let MustExpensive=''
+        let Maxprix=0
+        let max=0
+         for (let i=0;i<this.inventory.length;i++){
+                 if (this.inventory[i].price>max){
+                     MustExpensive=this.inventory[i].name
+                     max=this.inventory[i].price
+                 }
+        }
+      return `le produit le plus cher avec le prix ${max} est :${MustExpensive} `
+      }
+      averagePrice(){
+         let  total=0
+         let moyenPrix=0
+         for (let i=0;i<this.inventory.length;i++){
+                 {
+                    total+=this.inventory[i].price
+                 }
+         moyenPrix=total/this.inventory.length
+         return `e le prix moyen de tous les produits est : ${moyenPrix}`
+        }
       }
 }
 
