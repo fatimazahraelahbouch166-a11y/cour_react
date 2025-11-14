@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
+import Header from './composant/header'; 
+import DashedList from './composant/DashedList';
+import TableList from './composant/tableList'; 
+import Footer from './composant/footer';  
+const livresData = [
+  {"title": "1984", "author": "George Orwell", "publicationYear": 1949, "genre": "Dystopian", "rating": 4.8},
+  {"title": "To Kill a Mockingbird", "author": "Harper Lee", "publicationYear": 1960, "genre": "Classic", "rating": 4.9},
+  {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "publicationYear": 1925, "genre": "Classic", "rating": 4.4},
+  {"title": "Pride and Prejudice", "author": "Jane Austen", "publicationYear": 1813, "genre": "Romance", "rating": 4.7},
+  {"title": "Moby-Dick", "author": "Herman Melville", "publicationYear": 1851, "genre": "Adventure", "rating": 4.1},
+  {"title": "War and Peace", "author": "Leo Tolstoy", "publicationYear": 1869, "genre": "Historical Fiction", "rating": 4.5},
+  {"title": "The Alchemist", "author": "Paulo Coelho", "publicationYear": 1988, "genre": "Philosophical Fiction", "rating": 4.7}
+];
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <div style={{ padding: '2rem' }}>
+        <h2>Affichage en liste avec tirets :</h2>
+        <DashedList />  
+        <h2 style={{ marginTop: '3rem' }}>Affichage en tableau :</h2>
+        <TableList livres={livresData}/> 
+      </div>
+      <Footer/>
     </div>
   );
 }
