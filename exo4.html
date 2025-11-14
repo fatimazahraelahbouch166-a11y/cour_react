@@ -1,0 +1,44 @@
+<script>
+calculateTotalSales(sales){
+let total=0
+sales.forEach(vente => {
+    total+=vente
+});
+return `le prix total est : ${total}`
+}
+calculateAverageSales(sales){
+let total=0
+let Moy=0
+sales.forEach(vente => {
+    total+=vente
+});
+Moy=total/sales.length
+return `la moyenne mensuelle des ventes est : ${Moy}`
+}
+findBestMonth(sales){
+let bestSale=sales[0]
+let bestMonth=0
+sales.forEach(vente => {
+    if (vente>bestSale){
+      bestMonth+=1
+    }
+   
+});
+return `le mois correspondant des meilleures ventes est : ${bestMonth} `
+}
+
+console.log(findBestMonth([1200, 1500, 1700, 1300, 2100, 800, 900, 1800, 1900, 2500, 2300, 
+1600]))
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

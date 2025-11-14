@@ -1,0 +1,70 @@
+<script>
+class Student {
+    constructor(name, age, grades = []) {
+        this.name = name;
+        this.age = age;
+        this.grades = grades;
+    }
+
+    addGrade(grade) {
+        this.grades.push(grade);
+    }
+
+    getAverageGrade() {
+        let moyenne = 0;
+        let total = 0;
+        for (let note of this.grades) {
+            total += note;
+        }
+        moyenne = total / this.grades.length;
+        return moyenne;
+    }
+}
+let E1 = new Student("Allali", 17, [9, 12, 10, 11]);
+let E2 = new Student("Kadiri", 19, [19, 15, 10, 15]);
+let E3 = new Student("lahbouch", 20, [19, 18, 10, 15]);
+let E4 = new Student("Amine", 22, [13, 14, 16, 15]);
+let E5 = new Student("fatimazahrae", 20, [19, 18, 10, 15]);
+let Students = [E1, E2, E3, E4, E5];
+function affichage() {
+    let result = '';
+    for (let etd of Students) {
+        result += ` Nom : ${etd.name} | Moyenne : ${etd.getAverageGrade()} \n`;
+    }
+    return result;
+}
+function MoyenneClass() {
+    let TotalNotes = 0;
+    for (let etd of Students) {
+        TotalNotes += etd.getAverageGrade();
+    }
+    let MoyenneClass = TotalNotes / Students.length;
+    return `La moyenne de la classe : ${MoyenneClass}`;
+}
+function FindStudent() {
+    return Students.find(student => student.name.toLowerCase() ==='amine');
+}
+function StudentGT12() {
+    let Student_GT_12 = Students.filter(student => student.getAverageGrade() >= 12);
+    let result = '';
+    for (let etd of Student_GT_12) {
+        result += ` Nom : ${etd.name} | Moyenne : ${etd.getAverageGrade()} \n`;
+    }
+    return result;
+}
+
+function SortStudent() {
+    Students.sort((a, b) => b.getAverageGrade() - a.getAverageGrade());
+    let result = '';
+    for (let etd of Students) {
+        result += ` Nom : ${etd.name} | Moyenne : ${etd.getAverageGrade()} \n`;
+    }
+    return result;
+}
+
+console.log(affichage());
+console.log(MoyenneClass());
+console.log(FindStudent("Amine"));
+console.log(StudentGT12());
+console.log(SortStudent());
+</script>

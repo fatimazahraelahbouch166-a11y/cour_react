@@ -1,0 +1,83 @@
+<script>
+    class Book{
+        constructor(title,author,year){
+            this.title=title;
+            this.author=author;
+            this.year=year
+        }
+    }
+    class Library{
+        constructor(){
+           this.books=[];
+        }
+        addBook(book){
+            this.books.push(book);
+        }
+       findBooksByAuthor(author){
+        let result=`les livres de l'auteur ${author} sont : \n`
+        for (let book of this.books){
+            if (book.author===author){
+                result+=`${book.title} \n`
+            }
+        }
+        return result;
+       }
+    displaySummary(){
+        let result=''
+        for (let book of this.books){
+           result+=`Titre : ${book.title} | auteur : ${book.author} \n`
+        }
+        return result;
+    }
+   
+     countBooksByAuthor(author){
+        let countAuthor=0
+        for (let book of this.books){
+            if (book.author===author){
+                countAuthor+=1
+            }
+        }
+        return `le nombre de livres de l'auteur ${author} est : ${countAuthor}`;
+        }
+    getOldestBook(){
+        let year=2026
+        let theOldestBook=''
+         for (let book of this.books){
+            if (book.year<year){
+                theOldestBook=book.title
+            }
+        }
+        return ` le livre le plus ancien de la bibliotheque est : ${theOldestBook} `
+    }
+    removeBook(title){
+         for (let i=0;i<this.books.length;i++){
+            if (this.books[i].title===title){
+               this.books.splice(i,1)
+               return `livre avec le titre ${title} est bien supprimer `;
+            }
+        }
+        return "aucun livre trouve avec ce titre ";
+    }
+
+         }
+let book1 = new Book('la boite a merveille','ahmed sefrioui',1950);
+let book2 = new Book('livre2','ahmed kadiri',1930);
+let book3 = new Book('livre3','lahbouch fatima zahrae',2010);
+let book4 = new Book('Les Miserables', 'Victor Hugo', 1862);
+let book5 = new Book('livre5','lahbouch fatima zahrae',2011);
+let book6 = new Book('livre6','ahmed kadiri',1870);
+let book7 = new Book('livre7','lahbouch fatima zahrae',2012);
+let library=new Library()
+library.addBook(book1)
+library.addBook(book2)
+library.addBook(book3)
+library.addBook(book4)
+library.addBook(book5)
+library.addBook(book7)
+library.addBook(book6)
+console.log(library.findBooksByAuthor("lahbouch fatima zahrae"));
+console.log(library.countBooksByAuthor("ahmed kadiri"));
+console.log(library.getOldestBook());
+console.log(library.removeBook("livre3"));
+console.log(library.displaySummary());
+</script>
