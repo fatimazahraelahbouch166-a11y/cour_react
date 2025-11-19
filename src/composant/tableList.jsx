@@ -1,25 +1,22 @@
-function TableList({ livres }){
-      return (<table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '2rem' }}>
-        <thead>
-          <tr style={{ backgroundColor: '#62a8eeff' }}>
-            <th style={{ padding: '0.75rem', border: '1px solid #cdd5dcff' }}>Titre</th>
-            <th style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>Auteur</th>
-            <th style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>Année</th>
-            <th style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>Genre</th>
-            <th style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>Note</th>
-          </tr>
-        </thead>
-        <tbody>
-          {livres.map(livre => (
-            <tr key={livre.title}>
-              <td style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>{livre.title}</td>
-              <td style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>{livre.author}</td>
-              <td style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>{livre.publicationYear}</td>
-              <td style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>{livre.genre}</td>
-              <td style={{ padding: '0.75rem', border: '1px solid #dee2e6' }}>{livre.rating}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>)
+function TableList({Livres}){
+  return (<div style={{textAlign:"center"}}>
+<table style={{border:"2",backgroundColor:"grey",  justifyContent: "center",margin: "0 auto", width: "60%",height:"70%" }}>
+  <thead>
+  <tr style={{backgroundColor:"lightgrey"}}>
+      <td>Titre</td>
+      <td>Auteur</td>
+      <td>Annee de publication</td>
+       </tr>
+       </thead>
+       <tbody>
+    {Livres.map((livre,index)=>(
+       <tr key={index} style={{backgroundColor:"lightblue"}}>
+      <td>{livre.title}</td><td>{livre.author}</td><td>{livre.publicationYear}</td>
+       </tr>
+       
+    ))}
+    </tbody>
+ </table>
+  </div>) 
 }
 export default TableList
