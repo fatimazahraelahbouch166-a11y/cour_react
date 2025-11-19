@@ -1,20 +1,12 @@
 import React from 'react';
 import './App.css';
-import Counter from './composant/Counter';
+import MoodSelector from './composant/MoodSelector';
 function App() {
  return (
   <div>
- <Counter/>
+ <MoodSelector/>
   </div>
  )
- 
-
 }
-
-
-
-
-
-
 
 export default App;
