@@ -1,12 +1,10 @@
-import React from 'react';
 import './App.css';
-import MoodSelector from './composant/MoodSelector';
+import Main from "./composant/MainPage"
+
 function App() {
- return (
-  <div>
- <MoodSelector/>
-  </div>
- )
+  return (
+    <Main />
+  );
 }
 
 export default App;
